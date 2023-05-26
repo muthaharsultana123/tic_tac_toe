@@ -17,9 +17,48 @@ userO.addEventListener('click' , e =>  {
     userchoice2 = 'x'
     currentChoice =  userchoice1
 })
-const checkGameWinner = (item) =>{
+function checkWinner() {
+    let topLeft = document.getElementById('first').innerHTML
+    let topMiddle = document.getElementById('second').innerHTML
+    let topRight = document.getElementById('third').innerHTML
+    let middleLeft = document.getElementById('third').innerHTML
+    let middleMiddle = document.getElementById('third').innerHTML
+    let middleRight = document.getElementById('third').innerHTML
+    let bottomLeft = document.getElementById('third').innerHTML
+    let bottomMiddle = document.getElementById('third').innerHTML
+    let bottomRight = document.getElementById('third').innerHTML
+    let winstatus = document.getElementById('winstatus').innerText
+    if(topLeft ===  topMiddle === topRight){
+        winstatus = `the winner is : ${topLeft}`
+    }
+    else if (middleLeft === middleMiddle === middleRight){
+        winstatus = `the winner is : ${middleLeft}`
+    }
+    else if (bottomLeft === bottomMiddle === bottomRight){
+        winstatus = `the winner is : ${bottomLeft}`
+    }
+    else if (topLeft === middleLeft === bottomLeft){
+        winstatus = `the winner is : ${topLeft}`
+    }
+    else if (topMiddle === middleMiddle === bottomMiddle){
+        winstatus = `the winner is :${topMiddle}`
+    }
+    else if (topRight === middleRight === bottomRight){
+        winstatus = `the winner is : ${topRight}`
+    }
+    else if (topLeft === middleMiddle === bottomRight){
+        winstatus = `the  winner  is: ${topLeft}`
+    }
+    else if (topRight === middleMiddle === bottomLeft){
+        winstatus = `the winner is : ${topRight}`
+    }
+    console.log(winstatus)
     
+}
+const checkGameWinner = (item) =>{
+    item.target.innerText = currentChoice
     flip()
+    checkWinner()
 }
 function flip(){
     if (currentChoice === 'x'){
